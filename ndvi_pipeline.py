@@ -8,8 +8,8 @@ from sentinelhub import SHConfig, BBox, CRS, DataCollection, SentinelHubRequest,
 
 # Set Sentinel Hub credentials
 config = SHConfig()
-config.sh_client_id = 'a227b581-ace8-41af-94fe-f4dcf55a5489'
-config.sh_client_secret = 'qR6dwvZE6nnmWewpsW6fQaoeDjxkRyFb'
+config.sh_client_id = 'ENTER YOUR CLIENT ID'
+config.sh_client_secret = 'ENTER YOUR CLIENT SECRET ID'
 
 # Function to download Sentinel satellite images
 def download_images(bbox, time_interval, output_folder, resolution=10, satellite='SENTINEL_2A', cloud_cover=10):
