@@ -43,7 +43,6 @@ def download_images(bbox, time_interval, output_folder, resolution=10, satellite
                         "dataFilter": {         
                         'maxCloudCoverage': cloud_cover,
                         'resolution': f'{resolution}m',
-                        #'collection': data_collection_str,
                         'satellite': satellite}
                     }
                 )
@@ -74,8 +73,8 @@ def download_images(bbox, time_interval, output_folder, resolution=10, satellite
 # Function to calculate NDVI statistics
 def calculate_ndvi_stats(image_path):
     with rasterio.open(image_path) as src:
-        red = src.read(3)
-        nir = src.read(4)
+        red = src.read(3).astype('f4')
+        nir = src.read(4).astype('f4')
 
     ndvi = (nir - red) / (nir + red)
     ndvi_mean = np.nanmean(ndvi)
